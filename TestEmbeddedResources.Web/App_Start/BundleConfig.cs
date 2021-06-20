@@ -125,6 +125,11 @@ namespace TestEmbeddedResources.Web
                 new StyleBundle("~/Bundles/css")
                     .Include("~/css/main.css")
                 );
+
+            bundles.Add(
+                new ScriptBundle("~/Bundles/Shared/js")
+                    .IncludeDirectory("~/EmbeddedContent", "*.js", true)
+            );
         }
     }
 }
