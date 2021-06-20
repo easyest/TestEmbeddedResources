@@ -219,6 +219,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmbeddedResources\EmbeddedResourceItemCacheDependency.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualDirectory.cs" />
     <Compile Include="EmbeddedResources\EmbeddedResourceVirtualFile.cs" />
     <Compile Include="EmbeddedResources\FixedEmbeddedResourceVirtualPathProvider.cs" />
