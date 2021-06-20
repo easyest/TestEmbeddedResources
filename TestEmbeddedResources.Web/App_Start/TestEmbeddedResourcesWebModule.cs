@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -17,6 +18,7 @@ using Castle.MicroKernel.Registration;
 using Hangfire;
 using Microsoft.Owin.Security;
 using TestEmbeddedResources.Shared;
+using TestEmbeddedResources.Shared.EmbeddedResources;
 
 namespace TestEmbeddedResources.Web
 {
@@ -56,6 +58,8 @@ namespace TestEmbeddedResources.Web
                     .UsingFactoryMethod(() => HttpContext.Current.GetOwinContext().Authentication)
                     .LifestyleTransient()
             );
+
+            HostingEnvironment.RegisterVirtualPathProvider(IocManager.Resolve<FixedEmbeddedResourceVirtualPathProvider>());
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
