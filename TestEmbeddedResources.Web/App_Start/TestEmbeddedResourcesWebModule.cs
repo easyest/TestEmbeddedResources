@@ -16,6 +16,7 @@ using Castle.Core;
 using Castle.MicroKernel.Registration;
 using Hangfire;
 using Microsoft.Owin.Security;
+using TestEmbeddedResources.Shared;
 
 namespace TestEmbeddedResources.Web
 {
@@ -25,7 +26,9 @@ namespace TestEmbeddedResources.Web
         typeof(TestEmbeddedResourcesWebApiModule),
         typeof(AbpWebSignalRModule),
         //typeof(AbpHangfireModule), - ENABLE TO USE HANGFIRE INSTEAD OF DEFAULT JOB MANAGER
-        typeof(AbpWebMvcModule))]
+        typeof(AbpWebMvcModule),
+        typeof(TestEmbeddedResourcesSharedModule)
+        )]
     public class TestEmbeddedResourcesWebModule : AbpModule
     {
         public override void PreInitialize()
